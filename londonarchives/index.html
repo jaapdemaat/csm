@@ -109,11 +109,11 @@ h3{font-size:1.15rem;margin:0 0 8px}
 .map-controls button{font-family:var(--sans);font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);background:#fff;border:1px solid var(--ink);padding:7px 12px;cursor:pointer}
 .map-controls button+button{border-left:none}
 .map-controls button:hover{background:var(--ink);color:#fff}
-.lpin{width:28px;height:28px;color:#fff;font:800 12px/28px var(--sans);text-align:center;box-shadow:0 0 0 2px #fff,0 3px 8px rgba(22,21,31,.35);transition:transform .15s ease}
+.lpin{border-radius:50%!important;width:28px;height:28px;color:#fff;font:800 12px/28px var(--sans);text-align:center;box-shadow:0 0 0 2px #fff,0 3px 8px rgba(22,21,31,.35);transition:transform .15s ease}
 .lpin.selected{transform:scale(1.22);box-shadow:0 0 0 2px #fff,0 0 0 6px var(--mint),0 3px 10px rgba(22,21,31,.4)}
 .lpin.dim{opacity:.15}
 .lref{display:flex;align-items:center;gap:0;font:800 11px var(--sans);letter-spacing:.06em;white-space:nowrap}
-.lref .sq{width:12px;height:12px;background:var(--mint);border:2px solid var(--ink)}
+.lref .sq{border-radius:50%!important;width:12px;height:12px;background:var(--mint);border:2px solid var(--ink)}
 .lref .txt{background:var(--ink);color:#fff;padding:2px 6px}
 
 /* Detail panel */
@@ -242,7 +242,7 @@ footer{padding:32px 0 64px;border-top:2px solid var(--rule);font-size:.82rem;col
 
     <section class="first" id="overview">
       <h2 class="section-title">Overview</h2>
-      <div class="stats"><span><b>In person:</b> 12</span><span><b>Online:</b> 12</span><span><b>Cost:</b> free</span><span><b>Booking:</b> most need it</span><span><b>Checked:</b> 17 Nov 2026</span></div>
+      <div class="stats"><span><b>In person:</b> 12</span><span><b>Online:</b> 12</span><span><b>Cost:</b> free</span><span><b>Booking:</b> most need it</span><span><b>Checked:</b> 18 Nov 2026</span></div>
       <p class="lede">These archives sit alongside the UAL libraries rather than replacing them. Many were set up by communities to keep histories that larger institutions overlooked, so <em>where</em> something is kept, and <em>by whom</em>, is part of your research too.</p>
       <div class="callout">
         <span class="tag">Before you go</span>
@@ -276,7 +276,7 @@ footer{padding:32px 0 64px;border-top:2px solid var(--rule);font-size:.82rem;col
       <h2 class="section-title">When can you go?</h2>
       <p class="lede">Each archive's opening days at a glance. A dashed outline means visits are by appointment only. Hours change, so always check the archive's website before you travel.</p>
       <div class="tt-wrap">
-        <div class="tt-head"><h3>Visit in person</h3><span>Typical week · checked 17 Nov 2026</span></div>
+        <div class="tt-head"><h3>Visit in person</h3><span>Typical week · checked 18 Nov 2026</span></div>
         <table class="tt" id="tt"></table>
         <div class="tt-key">
           <span><span class="diamond" style="background:var(--warn)"></span>By appointment</span>
@@ -311,7 +311,7 @@ footer{padding:32px 0 64px;border-top:2px solid var(--rule);font-size:.82rem;col
     </div>
     <div>
       <p class="label">Check before you go</p>
-      <p>Details were checked on 17 November 2026 and are added to by staff, so some may be out of date. Opening hours, booking rules and access arrangements change: always confirm with the archive before visiting. Access notes are a guide only; contact the archive directly about specific needs. Pin positions are approximate.</p>
+      <p>Details were checked on 18 November 2026 and are added to by staff, so some may be out of date. Opening hours, booking rules and access arrangements change: always confirm with the archive before visiting. Access notes are a guide only; contact the archive directly about specific needs. Pin positions are approximate.</p>
     </div>
     <div>
       <p class="label">Links and credits</p>
@@ -333,65 +333,70 @@ const MAPCATS = ["c1","c2","c3","c4"];
 
 /* hours: per day mon..sun -> {t:"10–18", appt:bool} ; or span:{text, kind:"appt"|"closed"|"note"} */
 const ARCHIVES = [
-  {id:"bca", cat:"c1", name:"Black Cultural Archives", lat:51.4613, lng:-0.1153, area:"Brixton",
+  {id:"bca", cat:"c1", name:"Black Cultural Archives", lat:51.4605, lng:-0.1146, area:"Brixton",
    address:"1 Windrush Square, Brixton, London SW2 1EF", url:"https://blackculturalarchives.org",
    what:"Founded in 1981 to redress the historical imbalance in how Black people in Britain are represented. The reading room holds the Runnymede Trust library alongside BCA's own.",
-   access:"Heritage Centre free, Tue–Sat. Archive by appointment: archives@bcaheritage.org.uk", booking:"Archive: appointment",
-   hours:{tue:"10–18",wed:"10–18",thu:"10–18",fri:"10–18",sat:"10–18"}, hoursNote:"Heritage Centre"},
-  {id:"gpi", cat:"c1", name:"George Padmore Institute", lat:51.5652, lng:-0.1077, area:"Finsbury Park",
+   access:"Book by email: archives@bcaheritage.org.uk. Send the items you want to see at least 7 days ahead. Arrive within the first two hours of the session.", booking:"Appointment only",
+   warn:"Small reading room: each booking is for one person. Ask first before bringing anyone with you.",
+   hours:{wed:{t:"12–17",appt:true},thu:{t:"11–17",appt:true},fri:{t:"11–17",appt:true}}, hoursNote:"Reading Room & Library"},
+  {id:"gpi", cat:"c1", name:"George Padmore Institute", lat:51.5683, lng:-0.1098, area:"Finsbury Park",
    address:"76 Stroud Green Road, Finsbury Park, London N4 3EN", url:"https://www.georgepadmoreinstitute.org",
    what:"Archive, library and education centre above New Beacon Books, founded 1991 by John La Rose and fellow activists. Documents, photographs and posters on Black communities of Caribbean, African and Asian descent in post-war Britain.",
    access:"By appointment only — book well in advance.", booking:"Appointment only",
-   warn:"Not wheelchair accessible — many stairs.", span:{text:"By appointment only — days agreed when you book", kind:"appt"}},
-  {id:"shl", cat:"c1", name:"Stuart Hall Library (Iniva)", lat:51.4913, lng:-0.1283, area:"Pimlico",
+   warn:"Not wheelchair accessible — many stairs.", hours:{mon:{t:"10:30–16",appt:true},tue:{t:"10:30–16",appt:true},wed:{t:"10:30–16",appt:true},thu:{t:"10:30–16",appt:true},fri:{t:"10:30–16",appt:true}}},
+  {id:"shl", cat:"c1", name:"Stuart Hall Library (Iniva)", lat:51.4924, lng:-0.1277, area:"Pimlico",
    address:"16 John Islip Street, London SW1P 4JU", url:"https://iniva.org/library/",
    what:"Specialist library centring art and theory from Global Majority and diaspora perspectives: 10,000+ artist books, catalogues, journals and zines, plus Iniva's archive including the UK Black Arts Movement.",
    access:"Open to the public. Free 30-minute group tours for up to 15: library@iniva.org", booking:"Drop in",
-   note:"Sits on the Chelsea College of Arts campus but is independent of UAL.",
+   note:"Sits on the Chelsea College of Arts campus but is independent of UAL. Also open some Saturdays (5 Dec 2026). Closed 21 Dec 2026 – 4 Jan 2027.",
    hours:{tue:"10–17",wed:"10–17",thu:"10–17",fri:"10–17"}},
   {id:"seed", cat:"c1", name:"Seed Archives", lat:51.5880, lng:-0.0700, area:"Tottenham",
    address:"Tottenham, London (exact address on booking)", url:"https://www.seedarchives.com", mapsQuery:"Seed Archives Tottenham London",
    what:"Self-funded living archive founded in 2021 by photographer Christian Cassiel: 300+ rare print books on Africa and the Caribbean, and curated objects.",
-   access:"Free. Book via Instagram DM @seedarchives.", booking:"Book via Instagram",
-   note:"Pin position is approximate.", hours:{sat:{t:"Open",appt:true},sun:{t:"Open",appt:true}}, hoursNote:"Weekdays by invitation"},
-  {id:"fem", cat:"c2", name:"The Feminist Library", lat:51.4787, lng:-0.0705, area:"Peckham",
+   access:"Free research library. Book by email: seedinservice@gmail.com", booking:"Appointment only",
+   note:"Pin position is approximate.", hours:{sat:{t:"By appt",appt:true}}, hoursNote:"Weekdays by special request"},
+  {id:"fem", cat:"c2", name:"The Feminist Library", lat:51.4781, lng:-0.0739, area:"Peckham",
    address:"Sojourner Truth Community Centre, 161 Sumner Rd, London SE15 6JL", url:"https://feministlibrary.co.uk",
    what:"Large archive of feminist literature, especially Women's Liberation Movement material from the late 1960s to 1990s, organised with its own feminist classification system.",
-   access:"Volunteer-run with limited opening hours. Step-free access.", booking:"Check website",
-   note:"Replies can be slow — email early.", span:{text:"Limited, volunteer-run hours — check the website", kind:"note"}},
-  {id:"bish", cat:"c2", name:"Bishopsgate Institute", lat:51.5193, lng:-0.0790, area:"Liverpool Street",
+   access:"Volunteer-run. Step-free access.", booking:"Drop in",
+   note:"Replies to email can be slow — allow two weeks.", hours:{tue:"11–17",wed:"13–19",fri:"11–17",sat:"13–16"}},
+  {id:"bish", cat:"c2", name:"Bishopsgate Institute", lat:51.5187, lng:-0.0793, area:"Liverpool Street",
    address:"230 Bishopsgate, London EC2M 4QH", url:"https://www.bishopsgate.org.uk",
    what:"Collects everyday life and activism: London history, protest and campaigning, labour, feminist history, and one of the UK's largest LGBTQIA+ collections.",
-   access:"Free reading room. Wheelchair access.", booking:"Drop in",
-   hours:{mon:"10–17:30",tue:"10–17:30",wed:"10–17:30",thu:"10–17:30",fri:"10–17:30"}},
-  {id:"mayday", cat:"c2", name:"MayDay Rooms", lat:51.5141, lng:-0.1062, area:"Fleet Street",
+   access:"Free. Reading Room open most Mondays and Fridays; Researchers' Area Mon–Fri. Wheelchair access.", booking:"Drop in",
+   note:"Hours can change at short notice — check before travelling.",
+   hours:{mon:"10–17",tue:"10–17",wed:"10–20",thu:"10–17",fri:"10–17"}, hoursNote:"Researchers' Area; Reading Room Mon & Fri"},
+  {id:"mayday", cat:"c2", name:"MayDay Rooms", lat:51.5141, lng:-0.1054, area:"Fleet Street",
    address:"88 Fleet Street, London EC4Y 1DH", url:"https://maydayrooms.org",
    what:"Archive and safe haven for social movements and marginal cultures: Race Today, Black Struggle, Student Movement 2010–12, pamphlets and dissenting ephemera.",
    access:"No appointment needed. Email ahead for specific material.", booking:"Drop in",
    note:"A few minutes' walk from St Bride — visit both on a Wednesday.",
    hours:{wed:"11–18",thu:"11–18",fri:"11–18"}},
-  {id:"stbride", cat:"c3", name:"St Bride Library", lat:51.5134, lng:-0.1048, area:"Fleet Street",
+  {id:"stbride", cat:"c3", name:"St Bride Library", lat:51.5133, lng:-0.1051, area:"Fleet Street",
    address:"14 Bride Lane, Fleet Street, London EC4Y 8EQ", url:"https://sbf.org.uk",
    what:"Library of printing, typography and graphic design, opened 1895 for the print school that became LCC. c. 65,000 books, type specimens, Gill, Dwiggins and Warde collections, and a working print workshop.",
-   access:"Email up to 10 catalogue items 48 hours ahead.", booking:"48 hours ahead",
+   access:"Email up to 10 catalogue items 48 hours ahead. Photography permit £5 a day.", booking:"48 hours ahead",
+   note:"Closed 23 & 30 Dec and 6 Jan; reopens 13 Jan 2027.",
    warn:"Wednesdays only.", hours:{wed:{t:"12–15 · 15:30–18:30",appt:true}}},
-  {id:"bl", cat:"c4", name:"The British Library", lat:51.5299, lng:-0.1277, area:"King's Cross",
+  {id:"bl", cat:"c4", name:"The British Library", lat:51.5300, lng:-0.1270, area:"King's Cross",
    address:"96 Euston Road, London NW1 2DB", url:"https://www.bl.uk",
    what:"The UK's national library, holding a copy of everything published in the UK. Ten minutes' walk from CSM.",
-   access:"Free Reader Pass, registered on site with ID.", booking:"Reader Pass",
-   span:{text:"Open most days — check the website for Reading Room hours", kind:"note"}},
-  {id:"tla", cat:"c4", name:"The London Archives", lat:51.5263, lng:-0.1080, area:"Clerkenwell",
+   access:"Free Reader Pass, registered with ID.", booking:"Reader Pass",
+   note:"St Pancras site closed 12–13 Dec 2026. Maps, Manuscripts and Asian & African Studies rooms close at 17:00.",
+   hours:{mon:"10–20",tue:"9:30–20",wed:"9:30–20",thu:"9:30–20",fri:"9:30–17",sat:"9:30–17"}, hoursNote:"Reading Rooms"},
+  {id:"tla", cat:"c4", name:"The London Archives", lat:51.5251, lng:-0.1072, area:"Clerkenwell",
    address:"40 Northampton Road, Clerkenwell, London EC1R 0HB", url:"https://www.thelondonarchives.org",
    what:"Free public archive of London's history from 1067 to today (formerly London Metropolitan Archives): maps, photographs, records and a reference library.",
    access:"Free. History Card needed only for original documents.", booking:"History Card",
-   hours:{mon:"10–16:30",tue:"10–16:30",wed:"10–19",thu:"10–16:30",sat:{t:"One a month"}}},
-  {id:"newham", cat:"c4", name:"Newham Archives & Local Studies", lat:51.5440, lng:0.0030, area:"Stratford",
+   note:"Next open Saturday: 12 Dec 2026. Closed 24 Dec 2026 – 3 Jan 2027.",
+   hours:{mon:"10–16:30",tue:"10–18",wed:"10–19",thu:"10–16:30",sat:{t:"One a month"}}},
+  {id:"newham", cat:"c4", name:"Newham Archives & Local Studies", lat:51.5430, lng:0.0045, area:"Stratford",
    address:"Stratford Library, 3 The Grove, London E15 1EL", url:"https://www.newhamheritagemonth.org/contributors/newham-archives-and-local-studies-library/",
    what:"Borough archive: local newspapers, council, school and hospital records, maps and a large photographic collection.",
    access:"Appointment only: archiveslocalstudies@newham.gov.uk", booking:"Appointment only",
    warn:"Very limited hours — plan well ahead.",
    hours:{tue:{t:"10:30–13 · 14:30–16",appt:true},thu:{t:"10:30–13 · 14:30–16",appt:true}}},
-  {id:"bfi", cat:"c4", name:"BFI National Archive", lat:51.7726, lng:-0.5434, area:"Berkhamsted", far:true,
+  {id:"bfi", cat:"c4", name:"BFI National Archive", lat:51.7530, lng:-0.5750, area:"Berkhamsted", far:true,
    address:"J. Paul Getty Conservation Centre, Kingshill Way, Berkhamsted HP4 3TP", url:"https://www.bfi.org.uk/bfi-national-archive",
    what:"Film and TV archive plus scripts, stills, posters, publicity material, production and costume designs, and animation drawings.",
    access:"Normally by appointment, with a wait of around four weeks.", booking:"Closed to May 2027", closed:true,
@@ -414,7 +419,7 @@ const ONLINE = [
   {name:"Saman Archive", cat:"c5", kind:"Instagram", url:"https://www.instagram.com/samanarchive/", text:"Description to follow.", unverified:true}
 ];
 
-const CSM = {lat:51.5355, lng:-0.1253};
+const CSM = {lat:51.5361, lng:-0.1249};
 const DAYS = [["mon","Mon"],["tue","Tue"],["wed","Wed"],["thu","Thu"],["fri","Fri"],["sat","Sat"],["sun","Sun"]];
 
 // number in category order
@@ -451,7 +456,7 @@ function renderDetail(a){
       <div class="body empty"><ol class="steps">
         <li><span>Click a numbered pin, or any archive name on this page.</span></li>
         <li><span>Use <b>Central</b> to zoom into the Fleet Street cluster, where St Bride and MayDay Rooms sit a few minutes apart.</span></li>
-        <li><span>The mint square marked <b>CSM</b> is Granary Square. The BFI archive is outside London in Berkhamsted.</span></li>
+        <li><span>The mint dot marked <b>CSM</b> is Granary Square. The BFI archive is outside London in Berkhamsted.</span></li>
       </ol></div>`;
     return;
   }
