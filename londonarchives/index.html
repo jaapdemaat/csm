@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Archives outside UAL — BA GCD Stage 2</title>
+<title>Archives outside CSM — BA GCD Stage 2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
@@ -17,6 +17,7 @@
   --c2:#008230; --c2-deep:#005E22; --c2-tint:#E3F4E9;   /* Activism & social movements */
   --c3:#9548D7; --c3-deep:#5B1E96; --c3-tint:#F4ECFB;   /* Print, type & design */
   --c4:#460082; --c4-deep:#330060; --c4-tint:#ECE3F5;   /* Public, national & local records */
+  --c6:#16151f; --c6-deep:#16151f; --c6-tint:#ECECEF;   /* National museum collections */
   --c5:#5c5a72; --c5-deep:#3a3948; --c5-tint:#F0F0F3;   /* General / cross-disciplinary */
   --mint:#80FFAF;
   --warn:#8a5a00; --warn-tint:#FFF6E0; --alert:#c4122d;
@@ -91,6 +92,7 @@ h3{font-size:1.15rem;margin:0 0 8px}
 .k-c2{background:var(--c2-tint);color:var(--c2-deep)}
 .k-c3{background:var(--c3-tint);color:var(--c3-deep)}
 .k-c4{background:var(--c4-tint);color:var(--c4-deep)}
+.k-c6{background:var(--c6-tint);color:var(--c6-deep)}
 .k-c5{background:var(--c5-tint);color:var(--c5-deep)}
 
 /* ---------- Map ---------- */
@@ -124,11 +126,14 @@ h3{font-size:1.15rem;margin:0 0 8px}
 .detail .head .cat{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;background:#fff;padding:4px 8px}
 .detail .head .name{font-size:1.35rem;font-weight:800;line-height:1.15;margin:14px 0 0;color:#fff}
 .detail .body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:14px}
-.cells{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#fff}
-.cell{background:var(--main-tint);padding:10px 12px;border-bottom:3px solid var(--main-tint-2)}
-.cell.wide{grid-column:1/-1}
-.cell dt{font-size:.64rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800;margin:0 0 2px}
-.cell dd{margin:0;font-size:.88rem;font-weight:600;color:var(--ink)}
+.facts{margin:0;border-top:2px solid var(--rule)}
+.facts .row{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.facts dt{font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--main-deep);font-weight:800;padding-top:2px}
+.facts dd{margin:0;font-size:.88rem;color:var(--ink);overflow-wrap:break-word}
+.facts .days{display:grid;grid-template-columns:38px 1fr;gap:2px 8px}
+.facts .days b{font-weight:800;font-size:.8rem}
+.facts .days span{font-variant-numeric:tabular-nums}
+.facts .tag{display:inline-block;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:3px 7px;margin-right:4px}
 .detail .what{font-size:.9rem}
 .actions{display:flex;flex-wrap:wrap;gap:8px}
 .btn{display:inline-block;font-weight:800;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;text-decoration:none;padding:11px 16px;border:2px solid var(--ink);color:var(--ink);background:#fff}
@@ -203,7 +208,7 @@ footer{padding:32px 0 64px;border-top:2px solid var(--rule);font-size:.82rem;col
 <header class="top">
   <div class="wrap">
     <div class="header-row">
-      <h1>Archives outside UAL<span class="sub">BA Graphic Communication Design · Central Saint Martins · Stage 2</span></h1>
+      <h1>Archives outside CSM<span class="sub">BA Graphic Communication Design · Central Saint Martins · Stage 2</span></h1>
       <nav class="top-nav">
         <a href="#overview">Overview</a>
         <a href="#map">Map</a>
@@ -212,7 +217,7 @@ footer{padding:32px 0 64px;border-top:2px solid var(--rule);font-size:.82rem;col
       </nav>
     </div>
     <div class="intro">
-      <p>Archives, libraries and online collections for your research, beyond the UAL libraries. Twelve you can visit in and around London, and twelve you can use from anywhere. All of them are free; most need you to book.</p>
+      <p>Archives, libraries and online collections for your research, beyond the CSM library. Sixteen you can visit in and around London, and twelve you can use from anywhere. All of them are free; most need you to book.</p>
     </div>
   </div>
 </header>
@@ -224,11 +229,11 @@ footer{padding:32px 0 64px;border-top:2px solid var(--rule);font-size:.82rem;col
       <ul>
         <li><a href="#overview">Overview</a></li>
         <li><a href="#map">Map</a></li>
-        <li><a href="#times">When can you go? <span class="count">(12)</span></a></li>
+        <li><a href="#times">When can you go? <span class="count">(16)</span></a></li>
         <li><a href="#matrix">By what you're researching</a></li>
-        <li><a href="#every">Every archive <span class="count">(24)</span></a>
+        <li><a href="#every">Every archive <span class="count">(28)</span></a>
           <ul>
-            <li><a href="#every-visit">Visit in person <span class="count">(12)</span></a></li>
+            <li><a href="#every-visit">Visit in person <span class="count">(16)</span></a></li>
             <li><a href="#every-online">Online <span class="count">(12)</span></a></li>
           </ul>
         </li>
@@ -242,8 +247,8 @@ footer{padding:32px 0 64px;border-top:2px solid var(--rule);font-size:.82rem;col
 
     <section class="first" id="overview">
       <h2 class="section-title">Overview</h2>
-      <div class="stats"><span><b>In person:</b> 12</span><span><b>Online:</b> 12</span><span><b>Cost:</b> free</span><span><b>Booking:</b> most need it</span><span><b>Checked:</b> 18 Nov 2026</span></div>
-      <p class="lede">These archives sit alongside the UAL libraries rather than replacing them. Many were set up by communities to keep histories that larger institutions overlooked, so <em>where</em> something is kept, and <em>by whom</em>, is part of your research too.</p>
+      <div class="stats"><span><b>In person:</b> 16</span><span><b>Online:</b> 12</span><span><b>Cost:</b> free</span><span><b>Booking:</b> most need it</span><span><b>Checked:</b> 18 Nov 2026</span></div>
+      <p class="lede">These archives sit alongside the CSM and UAL libraries rather than replacing them. Many were set up by communities to keep histories that larger institutions overlooked, so <em>where</em> something is kept, and <em>by whom</em>, is part of your research too. Four national museum collections are included alongside them, so you can compare what gets kept, and how, by community archives and by national institutions.</p>
       <div class="callout">
         <span class="tag">Before you go</span>
         <ul>
@@ -307,7 +312,7 @@ footer{padding:32px 0 64px;border-top:2px solid var(--rule);font-size:.82rem;col
   <div class="wrap foot">
     <div>
       <p class="label">About this list</p>
-      <p>A list of additional research sources for BA Graphic Communication Design students at Central Saint Martins, compiled by Jaap de Maat and Stage 2 staff. It is not an official University of the Arts London publication, and inclusion does not mean UAL or CSM endorses an organisation.</p>
+      <p>A list of additional research sources for BA Graphic Communication Design students at Central Saint Martins, compiled by GCD staff. It is not an official University of the Arts London publication, and inclusion does not mean UAL or CSM endorses an organisation.</p>
     </div>
     <div>
       <p class="label">Check before you go</p>
@@ -327,9 +332,10 @@ const CATS = {
   c2:{label:"Activism & social movements", sub:"Protest, feminism, LGBTQIA+, labour", color:"#008230", deep:"#005E22", tint:"#E3F4E9"},
   c3:{label:"Print, type & design", sub:"Typography, printing, graphic design", color:"#9548D7", deep:"#5B1E96", tint:"#F4ECFB"},
   c4:{label:"Public, national & local records", sub:"Libraries, borough and city archives, film", color:"#460082", deep:"#330060", tint:"#ECE3F5"},
+  c6:{label:"National museum collections", sub:"Study rooms and stores of national museums", color:"#16151f", deep:"#16151f", tint:"#ECECEF"},
   c5:{label:"General & cross-disciplinary", sub:"Platforms, finding aids, mixed collections", color:"#5c5a72", deep:"#3a3948", tint:"#F0F0F3"}
 };
-const MAPCATS = ["c1","c2","c3","c4"];
+const MAPCATS = ["c1","c2","c3","c4","c6"];
 
 /* hours: per day mon..sun -> {t:"10–18", appt:bool} ; or span:{text, kind:"appt"|"closed"|"note"} */
 const ARCHIVES = [
@@ -401,7 +407,31 @@ const ARCHIVES = [
    what:"Film and TV archive plus scripts, stills, posters, publicity material, production and costume designs, and animation drawings.",
    access:"Normally by appointment, with a wait of around four weeks.", booking:"Closed to May 2027", closed:true,
    warn:"Research access is closed until May 2027. Use the BFI Reuben Library at BFI Southbank instead.",
-   span:{text:"Closed for research until May 2027", kind:"closed"}}
+   span:{text:"Closed for research until May 2027", kind:"closed"}},
+  {id:"vaeast", cat:"c6", name:"V&A East Storehouse", lat:51.5454, lng:-0.0208, area:"Stratford",
+   address:"2 Parkes Street, London E20 3AX", url:"https://www.vam.ac.uk/info/order-an-object",
+   what:"The V&A's open store. Through the free Order an Object service you can see up to five stored objects up close, with handling staff on hand — from posters and printed ephemera to fashion and furniture.",
+   access:"Search Explore the Collections, add objects to your crate, then book a free appointment. Ages 16+.", booking:"Book 2 weeks ahead",
+   note:"Book Order an Object at least two weeks ahead — it is very popular.",
+   hours:{mon:"10–18",tue:"10–18",wed:"10–18",thu:"10–22",fri:"10–18",sat:"10–22",sun:"10–18"}, hoursNote:"Building; objects by appointment"},
+  {id:"nal", cat:"c6", name:"V&A National Art Library & Prints and Drawings Study Room", lat:51.4969, lng:-0.1722, area:"South Kensington",
+   address:"V&A South Kensington, Cromwell Road, London SW7 2RL", url:"https://www.vam.ac.uk/nationalartlibrary",
+   what:"The UK's main art and design reference library: over a million items, plus a study room where you can request prints, posters and drawings from the collection.",
+   access:"Register for a free Reader's Card. Prints and Drawings Study Room by appointment, with at least one week's notice.", booking:"Reader card needed",
+   note:"There is also a free Virtual Reading Room if you can't visit.",
+   span:{text:"Reading room hours vary — check the website. Study Room objects need one week's notice.", kind:"note"}},
+  {id:"ltm", cat:"c6", name:"London Transport Museum Depot", lat:51.5055, lng:-0.2824, area:"Acton",
+   address:"118–120 Gunnersbury Lane, London W3 9BQ", url:"https://ltmuseum.co.uk/collections/research",
+   what:"The museum's working store, holding one of the great poster collections — commissioned work by designers such as Edward McKnight Kauffer and Abram Games — plus signs, maps, photographs and ephemera.",
+   access:"Research visits by appointment. The Museum Library is separate, at Albany House, 98 Petty France, also by appointment.", booking:"Appointment only",
+   warn:"Research visits on Mondays only, and not every collection is available.",
+   hours:{mon:{t:"Research visits",appt:true}}},
+  {id:"tate", cat:"c6", name:"Tate Library & Archive", lat:51.4909, lng:-0.1272, area:"Pimlico",
+   address:"Hyman Kreitman Reading Rooms, Tate Britain, Millbank, London SW1P 4RG", url:"https://www.tate.org.uk/visit/tate-britain/library-archive-reading-rooms",
+   what:"The world's largest archive of British art: artists' papers, sketchbooks and letters, plus a library of exhibition catalogues, artists' books and zines.",
+   access:"Register for a free Reader account and book every visit: reading.rooms@tate.org.uk", booking:"Appointment only",
+   note:"A few minutes' walk from the Stuart Hall Library — visit both on the same day. The Archive reading room opens at 13:00 on Thursdays.",
+   hours:{mon:{t:"11–17",appt:true},tue:{t:"11–17",appt:true},wed:{t:"11–17",appt:true},thu:{t:"11–17",appt:true}}}
 ];
 
 const ONLINE = [
@@ -416,7 +446,7 @@ const ONLINE = [
   {name:"Internet Archive", cat:"c5", kind:"Digital library", url:"https://archive.org", text:"Free books, film and audio, plus the Wayback Machine for past versions of websites."},
   {name:"UbuWeb", cat:"c5", kind:"Avant-garde archive", url:"https://www.ubu.com", text:"Avant-garde film, sound and concrete poetry. Copyright status is often grey."},
   {name:"are.na", cat:"c5", kind:"Research platform", url:"https://www.are.na", text:"Collect and connect references in shared channels. Free tier is capped; students get 50% off."},
-  {name:"Saman Archive", cat:"c5", kind:"Instagram", url:"https://www.instagram.com/samanarchive/", text:"Description to follow.", unverified:true}
+  {name:"Saman Archive", cat:"c5", kind:"Instagram", url:"https://www.instagram.com/samanarchive/", text:"Instagram archive “in honour of many lives and lifetimes”."}
 ];
 
 const CSM = {lat:51.5361, lng:-0.1249};
@@ -451,27 +481,31 @@ function syncLegend(){ legend.querySelectorAll("button").forEach(b=>b.setAttribu
 function renderDetail(a){
   const d = document.getElementById("detail");
   if(!a){
-    d.innerHTML = `<div class="head"><div class="row"><span class="num">12</span><span class="cat" style="color:var(--main-deep)">Select an archive</span></div>
-      <p class="name">Twelve archives you can visit</p></div>
+    d.innerHTML = `<div class="head"><div class="row"><span class="num">16</span><span class="cat" style="color:var(--main-deep)">Select an archive</span></div>
+      <p class="name">Sixteen archives you can visit</p></div>
       <div class="body empty"><ol class="steps">
         <li><span>Click a numbered pin, or any archive name on this page.</span></li>
         <li><span>Use <b>Central</b> to zoom into the Fleet Street cluster, where St Bride and MayDay Rooms sit a few minutes apart.</span></li>
-        <li><span>The mint dot marked <b>CSM</b> is Granary Square. The BFI archive is outside London in Berkhamsted.</span></li>
+        <li><span>The mint dot marked <b>CSM</b> is Granary Square. The BFI archive is outside London in Berkhamsted; the London Transport Museum Depot is out west in Acton.</span></li>
       </ol></div>`;
     return;
   }
   const c = CATS[a.cat];
-  const hoursTxt = a.span ? a.span.text : DAYS.filter(([k])=>a.hours&&a.hours[k]).map(([k,l])=>{const h=a.hours[k]; return `${l} ${typeof h==="string"?h:h.t}`;}).join(" · ") + (a.hoursNote?` (${a.hoursNote})`:"");
+  let hoursHtml;
+  if(a.span){ hoursHtml = esc(a.span.text); }
+  else {
+    const rows = DAYS.filter(([k])=>a.hours&&a.hours[k]).map(([k,l])=>{const h=a.hours[k]; const o=typeof h==="string"?{t:h}:h; return `<b>${l}</b><span>${esc(o.t)}</span>`;}).join("");
+    hoursHtml = `<div class="days">${rows}</div>` + (a.hoursNote?`<div style="color:var(--muted);font-size:.8rem;margin-top:4px">${esc(a.hoursNote)}</div>`:"");
+  }
   d.innerHTML = `<div class="head" style="background:${c.color}">
       <div class="row"><span class="num">${a.n}</span><span class="cat" style="color:${c.deep}">${c.label}</span></div>
       <p class="name">${esc(a.name)}</p></div>
     <div class="body">
-      <dl class="cells">
-        <div class="cell wide"><dt>Location</dt><dd>${esc(a.address)}</dd></div>
-        <div class="cell"><dt>Booking</dt><dd>${esc(a.booking)}</dd></div>
-        <div class="cell"><dt>Cost</dt><dd>Free</dd></div>
-        <div class="cell wide"><dt>Opening</dt><dd>${esc(hoursTxt)}</dd></div>
-        <div class="cell wide"><dt>Getting in</dt><dd>${esc(a.access)}</dd></div>
+      <dl class="facts">
+        <div class="row"><dt>Location</dt><dd>${esc(a.address)}</dd></div>
+        <div class="row"><dt>Booking</dt><dd><span class="tag" style="background:${c.tint};color:${c.deep}">${esc(a.booking)}</span><span class="tag" style="background:var(--main-tint);color:var(--main-deep)">Free</span></dd></div>
+        <div class="row"><dt>Opening</dt><dd>${hoursHtml}</dd></div>
+        <div class="row"><dt>Getting in</dt><dd>${esc(a.access).replace(/@/g,"@<wbr>")}</dd></div>
       </dl>
       <p class="what">${esc(a.what)}</p>
       ${a.warn?`<div class="callout--warn">⚠️ ${esc(a.warn)}</div>`:""}
